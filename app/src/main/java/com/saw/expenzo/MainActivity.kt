@@ -4,12 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.saw.expenzo.ui.components.BottomNavigationBar
 import com.saw.expenzo.ui.theme.ExpenzoTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,10 +19,15 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ExpenzoTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
+                Scaffold(
+                    bottomBar = {
+                        BottomNavigationBar()
+                    }
+                ) { innerPadding ->
+                    Surface(
+                        modifier = Modifier.padding(innerPadding)
+                    ) {
+                    }
                 }
             }
         }
@@ -32,5 +38,15 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     ExpenzoTheme {
+        Scaffold(
+            bottomBar = {
+                BottomNavigationBar()
+            }
+        ) { innerPadding ->
+            Surface(
+                modifier = Modifier.padding(innerPadding)
+            ) {
+            }
+        }
     }
 }
