@@ -5,14 +5,16 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 
 @Composable
 fun BottomNavigationBar(
     navItems: List<NavItem>,
     selectedItem: NavItem,
-    onItemClick: (NavItem) -> Unit
+    onItemClick: (NavItem) -> Unit,
+    modifier: Modifier = Modifier
 ) {
-    NavigationBar {
+    NavigationBar(modifier = modifier) {
         navItems.forEach { navItem ->
             NavigationBarItem(
                 selected = navItem == selectedItem,

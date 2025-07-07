@@ -11,10 +11,11 @@ import androidx.compose.ui.Modifier
 @Composable
 fun ScreenContent(
     navItems: List<NavItem>,
-    selectedItem: NavItem
+    selectedItem: NavItem,
+    modifier: Modifier = Modifier
 ) {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
         Text(

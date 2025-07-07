@@ -14,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.testTag
 
 data class NavItem(
     val label: String,
@@ -34,7 +35,8 @@ fun MainScreen() {
             BottomNavigationBar(
                 navItems = navItems,
                 selectedItem = selectedItem,
-                onItemClick = { selectedItem = it }
+                onItemClick = { selectedItem = it },
+                modifier = Modifier.testTag("bottomNavigationBar")
             )
         }
     ) { innerPadding ->
@@ -43,7 +45,7 @@ fun MainScreen() {
                 .padding(innerPadding)
                 .fillMaxSize()
         ) {
-            ScreenContent(navItems, selectedItem)
+            ScreenContent(navItems, selectedItem, modifier = Modifier.testTag("mainScreenContent"))
         }
     }
 
